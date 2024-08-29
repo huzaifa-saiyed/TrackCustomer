@@ -1,0 +1,19 @@
+{{template config_path="design/email/header_template"}}
+
+<p>Dear Admin,</p>
+
+<p>Please find below the summary of customer activities for today:</p>
+
+<table border="1" cellpadding="5" cellspacing="0">
+    <tr>
+        <th>Field Name</th>
+        <th>Old Value</th>
+        <th>New Value</th>
+        <th>Admin User</th>
+        <th>Customer ID</th>
+        <th>Customer Email</th>
+    </tr>
+    {{var content|raw}}
+</table>
+
+{{template config_path="design/email/footer_template"}}

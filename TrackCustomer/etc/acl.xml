@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="Kitchen365_TrackCustomer::track_customer" title="Track Customer" translate="title" sortOrder="32">
+                    <resource id="Kitchen365_TrackCustomer::customer_activity" title="Customer Activity" translate="title" sortOrder="11">
+                        <resource id="Kitchen365_TrackCustomer::track_customer_delete" title="Mass Delete Customer Activity" translate="title" sortOrder="15" />
+                    </resource>
+                </resource>
+                <resource id="Kithcen365_TrackCustomer::config_customer_activity" title="Customer Report Send Admin Email" translate="title" sortOrder="36" />
+            </resource>
+        </resources>
+    </acl>
+</config>

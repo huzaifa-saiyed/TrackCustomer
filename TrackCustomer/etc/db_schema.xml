@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="kitchen365_customer_track_activity" resource="default" engine="innodb" comment="Customer Activity Log">
+        <column xsi:type="int" name="entity_id" unsigned="true" nullable="false" identity="true" comment="Entity ID"/>
+        <column xsi:type="varchar" name="field_name" length="255" nullable="false" comment="Field Name"/>
+        <column xsi:type="varchar" name="old_value" nullable="false" length="255" comment="Old Value"/>
+        <column xsi:type="varchar" name="new_value" nullable="false" length="255" comment="New Value"/>
+        <column xsi:type="varchar" name="admin_user" nullable="false" length="255" comment="Admin User"/>
+        <column xsi:type="int" name="customer_id" unsigned="true" nullable="false" comment="Customer ID"/>
+        <column xsi:type="varchar" name="customer_email" nullable="false" comment="Customer Email"/>
+        <column xsi:type="timestamp" name="created_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP" comment="Creation Time"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+        </constraint>
+        <index referenceId="FULLTEXT_CUSTOMER_ACTIVITY" indexType="fulltext">
+            <column name="field_name"/>
+            <column name="old_value"/>
+            <column name="new_value"/>
+            <column name="admin_user"/>
+        </index>
+        <constraint xsi:type="foreign" referenceId="K365_CUSTOMER_TRACK_ACTIVITY_CUSTOMER_ID_CUSTOMER_ENTITY_ENTITY_ID" table="customer_activity_log" column="customer_id" referenceTable="customer_entity" referenceColumn="entity_id" onDelete="CASCADE"/>
+    </table>
+</schema>
